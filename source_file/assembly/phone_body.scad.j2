@@ -1,0 +1,47 @@
+// {{ phone.name }} | millimetres | +X towards the top, +Z towards the screen.
+// Dimensional handset reference from the OOMP phone catalogue.
+$fn = 64;
+body_length = {{ phone.length }};
+body_width = {{ phone.width }};
+body_thickness = {{ phone.thickness }};
+corner_radius = {{ phone.corner_radius }};
+edge_radius = {{ phone.edge_radius }};
+
+module handset_body() {
+    // Sweep the edge fillet around each plan corner, then join the four corners.
+    hull()
+        for (x = [-1, 1], y = [-1, 1], z = [edge_radius, body_thickness - edge_radius])
+            translate([x * (body_length/2 - corner_radius),
+                       y * (body_width/2 - corner_radius), z])
+                rotate_extrude()
+                    translate([corner_radius - edge_radius, 0]) circle(r=edge_radius);
+}
+
+handset_body();
+{% if phone.camera is defined %}
+// The camera feature represents the combined camera/flash envelope from the holder profile.
+include_camera_envelope = true;
+include_side_buttons = true;
+module camera_envelope(length, width, bump) {
+    radius = min(length, width)/4;
+    hull()
+        for (x = [-1, 1], y = [-1, 1])
+            translate([x*(length/2-radius), y*(width/2-radius), -bump])
+                cylinder(h=bump+edge_radius, r=radius);
+}
+if (include_camera_envelope)
+    translate([body_length/2 - {{ phone.camera.from_top }},
+               {{ phone.camera.side }}*(body_width/2 - {{ phone.camera.from_side }}), 0])
+        camera_envelope({{ phone.camera.length }}, {{ phone.camera.width }}, {{ phone.camera.bump }});
+
+module side_button(side, from_top, length, height, protrusion) {
+    embed = edge_radius;
+    translate([body_length/2 - from_top, side*(body_width/2 + (protrusion-embed)/2), {{ phone.button_z }}])
+        cube([length, protrusion+embed, height], center=true);
+}
+if (include_side_buttons) {
+{% for button in phone.buttons %}
+    side_button({{ button.side }}, {{ button.from_top }}, {{ button.length }}, {{ button.height }}, {{ button.protrusion }}); // {{ button.name }}
+{% endfor %}
+}
+{% endif %}

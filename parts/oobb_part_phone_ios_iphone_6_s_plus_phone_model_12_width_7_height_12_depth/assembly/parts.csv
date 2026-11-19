@@ -1,0 +1,9 @@
+key,name,quantity,id,md5,md5_6_alpha,short_url,identity_source
+front,Front bezel,1,oobb_part_phone_ios_iphone_6_s_plus_phone_model_12_width_7_height_12_depth__front,,,,Printed in this holder layout
+nut,M3 hex nut,4,hardware_nut_m3,632d2f1cf592d38bafebf6dcced02499,3vb5b,https://oom.lt/a/3vb5b,https://github.com/oomlout/oomlout_oomp_version_1_messy/tree/main/parts/hardware_nut_m3
+phone,iPhone 6s Plus,1,phone_ios_iphone_6_s_plus_64_gb_space_gray_color_apple_a1687,f903e942a4d3fab59f7ce5aade685541,9ps6h,https://oom.lt/a/9ps6h,Sibling checkout: oomp_phone_version_5/parts/phone_ios_iphone_6_s_plus_64_gb_space_gray_color_apple_a1687/working.yaml
+power,Power insert,1,oobb_part_phone_ios_iphone_6_s_plus_phone_model_12_width_7_height_12_depth__power,,,,Printed in this holder layout
+rear,Rear shell,1,oobb_part_phone_ios_iphone_6_s_plus_phone_model_12_width_7_height_12_depth__rear,,,,Printed in this holder layout
+screw,M3 × 12 countersunk hex screw,4,hardware_screw_countersunk_hex_head_black_m3_diameter_12_mm_length,2c6fb230ab08b4e2319686abe673d7e1,1qf1u,https://oom.lt/a/1qf1u,https://github.com/oomlout/oomp_hardware_screw_version_5/tree/main/parts/hardware_screw_countersunk_hex_head_black_m3_diameter_12_mm_length
+volume_down,Volume down insert,1,oobb_part_phone_ios_iphone_6_s_plus_phone_model_12_width_7_height_12_depth__volume_down,,,,Printed in this holder layout
+volume_up,Volume up insert,1,oobb_part_phone_ios_iphone_6_s_plus_phone_model_12_width_7_height_12_depth__volume_up,,,,Printed in this holder layout
